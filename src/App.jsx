@@ -9,6 +9,7 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setData([]);
     const URL = `https://api.weatherapi.com/v1/current.json?key=2ec2fdbc0c014a5eb6a190053240901&q=${city}`;
     try {
       const res = await axios.get(URL);
@@ -18,14 +19,15 @@ function App() {
       console.log(data);
     } catch (error) {
       console.error(error);
-      alert("Failed to fetch weather data");
+      setIsLoading(false);
+      alert('Failed to fetch weather data');
     }
   };
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <input
-          type="search"
+          type="text"
           name=""
           id=""
           placeholder="Enter city name"
