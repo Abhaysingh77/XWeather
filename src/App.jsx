@@ -37,7 +37,7 @@ function App() {
         <button type="submit">Search</button>
       </form>
       {isLoading && <p className="load">Loading data...</p>}
-      {Array.isArray(data) && !isLoading || (
+      {Array.isArray(data) || (
         <div className="weather-cards">
           <div className="weather-card">
             <h4>Temprature</h4>
